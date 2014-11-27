@@ -400,7 +400,7 @@ function addPipe(n) {
 
 			var utfs = (arguments.length === 1 ? pretty(arguments[0]) : util.format.apply(util, arguments)).trim();
 			var time = moment().format('h:mm:ss A');
-			var file = path.join(active.dir, 'app.' + i);
+            var file = path.join(active.dir, $.app + '.' + i);
 			var indent = spaces($.indentation);
 			var tag = utfs.match(/^\[(.*?)\]\s{0,}/m);
 			var cleanTag;
