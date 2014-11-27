@@ -26,6 +26,7 @@ var $ = {
 	indentation: 2,
 	divider: ':::',
 	defaultUserDir: '_user',
+    timeFormat: 'YYYY.MM.DD HH:mm:ss.SSS',
 	testOutput: function(result, pipes, actual, expected, opts) {
 
 		var pipe = result ? 'log' : 'error';
@@ -399,7 +400,7 @@ function addPipe(n) {
 		return function() {
 
 			var utfs = (arguments.length === 1 ? pretty(arguments[0]) : util.format.apply(util, arguments)).trim();
-			var time = moment().format('h:mm:ss A');
+            var time = moment().format($.timeFormat);
             var file = path.join(active.dir, $.app + '.' + i);
 			var indent = spaces($.indentation);
 			var tag = utfs.match(/^\[(.*?)\]\s{0,}/m);
