@@ -99,9 +99,9 @@ var tag = function(a) {
 };
 
 var createDir = function() {
-	mkdirp.sync(path.normalize($.logPath), 0777 & (~process.umask()));
-	mkdirp.sync(path.normalize(path.join($.logPath, active.dateDir)), 0777 & (~process.umask()));
-	mkdirp.sync(active.dir = path.normalize(path.join($.logPath, active.dateDir, active.userDir)), 0777 & (~process.umask()));
+	mkdirp.sync(active.dir = path.normalize($.logPath), 0777 & (~process.umask()));
+	//mkdirp.sync(path.normalize(path.join($.logPath, active.dateDir)), 0777 & (~process.umask()));
+	//mkdirp.sync(active.dir = path.normalize(path.join($.logPath, active.dateDir, active.userDir)), 0777 & (~process.umask()));
 };
 
 var getUser = function() {
@@ -450,7 +450,6 @@ function addPipe(n) {
 
 // Startup
 $.mainUser = active.userDir = getUser();
-self.configure();
 
 // Express missing notification
 try {
